@@ -1,4 +1,10 @@
-import {ButtonSecondary, Container, FormContainer, StyledInput, StyledSelect} from "./styles";
+import {
+  ButtonSecondary,
+  Container,
+  FormContainer,
+  StyledInput,
+  StyledSelect
+} from "./styles";
 
 const Home = () => {
   return(
@@ -14,7 +20,7 @@ const Home = () => {
           <option value='react'>React</option>
         </StyledSelect>
 
-        <ButtonSecondary>Join Room</ButtonSecondary>
+        <ButtonSecondary fullWidth>Join Room</ButtonSecondary>
       </FormContainer>
     </Container>
   )
