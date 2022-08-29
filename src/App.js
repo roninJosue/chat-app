@@ -1,14 +1,15 @@
 import {useState} from "react";
+import io from "socket.io-client";
 
 import {
   BrowserRouter,
   Routes,
   Route
 } from "react-router-dom";
-import Home from "./pages/home";
 
+import Home from "./pages/home";
 import {GlobalStyles} from "./styles/GlobalStyles";
-import io from "socket.io-client";
+import Chat from "./pages/chat";
 
 const socket = io.connect(process.env.REACT_APP_SOCKET_URL)
 
@@ -29,6 +30,16 @@ function App() {
             room={room}
             setRoom={setRoom}
             socket={socket}
+          />
+        }
+        />
+        <Route
+        path='/chat'
+        element={
+          <Chat
+            socket={socket}
+            username={username}
+            room={room}
           />
         }
         />
