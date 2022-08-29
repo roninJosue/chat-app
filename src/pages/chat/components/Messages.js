@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {MessagesColum, MessageWrapper} from "../chatStyles";
+import {Message, MessagesColum, MessageWrapper} from "../chatStyles";
 
 const RECEIVE_MESSAGE = 'receive_message'
 
@@ -16,27 +16,27 @@ const Messages = ({socket}) => {
   useEffect(() => {
     console.count('effect')
     if (socket) {
-      socket.on(RECEIVE_MESSAGE, (data) => {
+      socket.on('receive_message', (data) => {
         console.log(data)
-        //setMessagesReceive([{message: 'asdas'}])
-        /*setMessagesReceive(state => [
+        //setMessagesReceive([])
+        setMessagesReceive(state => [
           ...state,
           {
             message: data.message,
             username: data.username,
             __createdtime__: data.__createdtime__
           }
-        ])*/
+        ])
       })
-
-      return () => socket.off(RECEIVE_MESSAGE)
     }
+
+    return () => socket.off(RECEIVE_MESSAGE)
   }, [socket])
 
   return (
     <MessagesColum>
       {messagesReceive.map((msg, i) => (
-        <Messages key={i}>
+        <Message key={i}>
           <MessageWrapper>
             <span className='.msgMeta'>{msg.username}</span>
             <span className={'.msgMeta'}>
@@ -44,7 +44,7 @@ const Messages = ({socket}) => {
             </span>
           </MessageWrapper>
           <p className='msgText'>{msg.message}</p>
-        </Messages>
+        </Message>
       ))}
     </MessagesColum>
   )
