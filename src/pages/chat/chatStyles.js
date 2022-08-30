@@ -24,14 +24,14 @@ export const RoomAndUserColum = styled.div`
   border-right: 1px solid #dfdfdf;
 `
 
-export const RoomTitle = styled.div`
+export const RoomTitle = styled.h2`
   margin-bottom: 60px;
   text-transform: uppercase;
   font-size: 2rem;
   color: #fff;
 `
 
-export const UsersTitle = styled.div`
+export const UsersTitle = styled.h5`
   font-size: 1.2rem;
   color: #fff;
 `
@@ -41,10 +41,11 @@ export const UserList = styled.ul`
   padding-left: 0;
   margin-bottom: 60px;
   color: rgb(153, 217, 234);
-  
-  li {
-    margin-bottom: 12px;
-  }
+`
+
+export const UserName = styled.li`
+  margin-bottom: 12px;
+  font-weight: ${({currentUser}) => currentUser ? 'bold' : 'normal'};
 `
 
 export const MessagesColum = styled.div`
