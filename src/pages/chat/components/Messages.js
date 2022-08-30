@@ -9,16 +9,11 @@ const formatDateFromTimestamp = timestamp => {
 }
 
 const Messages = ({socket}) => {
-  console.log(socket)
-  console.count('set')
   const [messagesReceive, setMessagesReceive] = useState([])
 
   useEffect(() => {
-    console.count('effect')
     if (socket) {
       socket.on('receive_message', (data) => {
-        console.log(data)
-        //setMessagesReceive([])
         setMessagesReceive(state => [
           ...state,
           {
